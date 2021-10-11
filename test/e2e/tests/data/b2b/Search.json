@@ -1,0 +1,9 @@
+{
+    "test01": {
+        "searchTerm": "hex",
+        "expectedKeyword": "hex",
+        "urlSearchTerm": "hex",
+        "expectedSearchCount": "10",
+        "expectedProdNames": ["Heavy Hex Nut", "Flex-top Hex Nut"]
+    }
+}

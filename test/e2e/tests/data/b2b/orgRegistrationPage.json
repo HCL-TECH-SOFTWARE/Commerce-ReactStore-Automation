@@ -1,0 +1,31 @@
+{
+    "test01": {
+        "sectionOrgAdmin": 2,
+        "sectionOrg": 1,
+        "organizationName": "autotest01",
+        "email": "autotest01@autotest01.com",
+        "addressline1": "autotest01",
+        "addresslineoptional2": "autotest01",
+        "city": "autotest01",
+        "country": "autotest01",
+        "state": "autotest01",
+        "postalcode": "autotest01",
+        "phone": "123456",
+        "logonId": "autotest_01",
+        "password": "autotest01",
+        "verifyPassword": "autotest01",
+        "phone2": "123456",
+        "email2": "autotest01@autotest01.com",
+        "addresslinelogon1": "autotest01",
+        "addresslineoptionallogon2": "autotest01",
+        "city2": "autotest01",
+        "country2": "autotest01",
+        "state2": "autotest01",
+        "postalcode2": "autotest01",
+        "firstName": "Emma",
+        "lastName": "Smith",
+        "alertMsg": "Your registration request has been received. Your account is waiting for approval. Until your account is approved, you cannot log on.",
+        "duplicateOrgID": "The organization name you entered already exists. Type a different name and try again.",
+        "duplicateOrgAdminID": "The logon ID you entered already exists. Type a different logon ID and try again."
+    }
+}

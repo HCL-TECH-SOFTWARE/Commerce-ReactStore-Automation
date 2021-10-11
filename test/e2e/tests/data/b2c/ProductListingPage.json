@@ -1,0 +1,30 @@
+{
+    "test01": {
+        "maxproducts": 12,
+        "totalFilters": 8,
+        "totalProducts": "35 products",
+        "totalCards": 12,
+        "filterByHeading": "Filter by",
+        "expectedFilters": [
+            "Price",
+            "Brand",
+            "Product Dimensions",
+            "Color",
+            "Size",
+            "Item Weight",
+            "Material",
+            "Pattern"
+        ],
+        "filterByPrice": {
+            "invalidmaxprice": "0",
+            "invalidminprice": "1",
+            "maxprice": "1000",
+            "minprice": "1",
+            "maxproducts": 12,
+            "totalproducts": "32 products",
+            "firstpage": 12,
+            "secondpage": 12,
+            "lastpage": 8
+        }
+    }
+}

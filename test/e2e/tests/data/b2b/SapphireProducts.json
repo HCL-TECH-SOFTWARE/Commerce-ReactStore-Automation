@@ -1,0 +1,196 @@
+{
+    "AllCategories": {
+        "categoryName": "All Categories"
+    },
+    "Categories": {
+        "Fasteners": {
+            "categoryName": "Fasteners",
+            "breadIndex": 1,
+            "Bolts": {
+                "subCategoryName": "Bolts",
+                "breadIndex": 2,
+                "numberofproduct": 9,
+                "subCategoryDescription": "Bolts designed to hold fast over the long term",
+                "T-Handle Bolt": {
+                    "breadIndex": 3,
+                    "numberofsubtype": "24",
+                    "name": "T-Handle Bolt",
+                    "sku": "SKU: FB041_4101",
+                    "shortDescription": "Medium-strength clamping pin",
+                    "longDescription": "This multi-purpose bolt provides superior clamping action. Adjustable collar must be welded in place to suit the application. Available in a black oxide finish to resist rust.",
+                    "subproduct": {
+                        "type1": {
+                            "sku": "FB041_410101",
+                            "finish": "Unfinished",
+                            "length": "3 1/4\"",
+                            "material": "Stainless steel",
+                            "price": "$22.25",
+                            "quantity": "1",
+                            "onlineavailability": "In Stock"
+                        },
+                        "type2": {
+                            "sku": "FB041_410102",
+                            "finish": "Unfinished",
+                            "length": "3 1/4\"",
+                            "material": "Stainless steel",
+                            "price": "$22.25",
+                            "quantity": "1",
+                            "onlineavailability": "In Stock"
+                        },
+                        "type3": {
+                            "sku": "FB041_410103",
+                            "finish": "Unfinished",
+                            "length": "4 3/8\"",
+                            "material": "Stainless steel",
+                            "price": "$22.25",
+                            "quantity": "1",
+                            "onlineavailability": "In Stock"
+                        },
+                        "type4": {
+                            "sku": "FB041_410104",
+                            "finish": "Unfinished",
+                            "length": "4 3/8\"",
+                            "material": "Stainless steel",
+                            "price": "$22.25",
+                            "quantity": "1",
+                            "onlineavailability": "In Stock"
+                        },
+                        "type5": {
+                            "sku": "FB041_410105",
+                            "finish": "Unfinished",
+                            "length": "4 3/8\"",
+                            "material": "Stainless steel",
+                            "price": "$22.25",
+                            "quantity": "1",
+                            "onlineavailability": "In Stock"
+                        }
+                    }
+                }
+            },
+            "Nuts": {
+                "subCategoryName": "Nuts",
+                "breadIndex": 2,
+                "subCategoryDescription": "High-strength nuts in various finishes",
+                "Heavy Hex Nut": {
+                    "productInfo": {
+                        "name": "Heavy Hex Nut",
+                        "productCode": "FNU040_4001",
+                        "shortDescription": "High-strength, general purpose fastening nut",
+                        "longDescription": "This hex nut has the extended height and width necessary to do the heavy work. Provides greater thread engagement and a high-performance load-bearing surface.",
+                        "descriptiveAttributes": {},
+                        "maxPrice": "8.70"
+                    }
+                }
+            },
+            "Screws": {
+                "subCategoryName": "Nuts",
+                "breadIndex": 2,
+                "subCategoryDescription": "Top-quality screws to suit all your fastening needs",
+                "Heavy Hex Nut": {
+                    "productInfo": {
+                        "name": "Heavy Hex Nut",
+                        "productCode": "FNU040_4001",
+                        "shortDescription": "High-strength, general purpose fastening nut",
+                        "longDescription": "This hex nut has the extended height and width necessary to do the heavy work. Provides greater thread engagement and a high-performance load-bearing surface.",
+                        "descriptiveAttributes": {},
+                        "maxPrice": "8.70"
+                    }
+                }
+            }
+        },
+        "Lighting": {
+            "categoryName": "Lighting",
+            "breadIndex": 2,
+            "Compact Fluorescent Bulb": {
+                "productInfo": {
+                    "name": "Compact Fluorescent Bulb",
+                    "productCode": "LA042_4201",
+                    "shortDescription": "Energy-efficient, screw-in spiral bulb",
+                    "longDescription": "Compared to an incandescent bulb, this CFL bulb uses 75% less energy. Frosted bulb is suitable for indoor use in lamps and sconces to simulate natural sunlight. Bulbs with a yellow finish will repel insects. Note that these bulbs contain mercury and require safe disposal.",
+                    "descriptiveAttributes": {},
+                    "maxPrice": "14.55"
+                }
+            },
+            "Medium-base Chandelier Bulb": {
+                "productInfo": {
+                    "name": "Medium-base Chandelier Bulb",
+                    "productCode": "LA042_4202",
+                    "shortDescription": "Screw-in bulb with elegant pointed tip",
+                    "longDescription": "This clear incandescent bulb is suitable for most chandeliers that accept medium-base (E26) bulbs. Emits a warm, golden light to make entranceways and dining areas more inviting.",
+                    "descriptiveAttributes": {},
+                    "maxPrice": "2.37"
+                }
+            },
+            "Standard Incandescent Bulb": {
+                "productInfo": {
+                    "name": "Standard Incandescent Bulb",
+                    "productCode": "LA042_4203",
+                    "shortDescription": "Standard household bulb with varying wattage",
+                    "longDescription": "This low-cost bulb is suitable for general indoor use. Bulbs produce a warm, yellow-white light. Available in a clear or frosted finish.",
+                    "descriptiveAttributes": {},
+                    "maxPrice": "3.65"
+                }
+            },
+            "Dual-tube Ultraviolet Bulb": {
+                "productInfo": {
+                    "name": "Dual-tube Ultraviolet Bulb",
+                    "productCode": "LA042_4204",
+                    "shortDescription": "Black light blue fluorescent bulb with screw-in base",
+                    "longDescription": "Manufactured with high-quality black blue glass, this bulb can be used in multiple applications, including counterfeit detection, medical examination, and theatrical special effects. Suitable for any E26 socket.",
+                    "descriptiveAttributes": {},
+                    "maxPrice": "15.77"
+                }
+            },
+            "Screw-in LED Bulb": {
+                "productInfo": {
+                    "name": "Screw-in LED Bulb",
+                    "productCode": "LA042_4205",
+                    "shortDescription": "Dimmable energy-saving floodlight bulb",
+                    "longDescription": "Lasting up to 25 times longer than a halogen bulb, this energy-efficient alternative bulb provides a 40-degree beam-spread angle. Suitable for any E26 socket.",
+                    "descriptiveAttributes": {},
+                    "maxPrice": "13.65"
+                }
+            },
+            "Halogen Floodlight Bulb": {
+                "productInfo": {
+                    "name": "Halogen Floodlight Bulb",
+                    "productCode": "LA042_4206",
+                    "shortDescription": "Multifaceted reflector (MR16) bulb that produces a wide beam of white light",
+                    "longDescription": "This high-efficiency, low voltage bulb offers a whiter light than an incandescent bulb. Ideal for both residential and commercial lighting. With a 40-degree beam-spread angle, this bulb is capable of illuminating a wide area.",
+                    "descriptiveAttributes": {},
+                    "maxPrice": "17.65"
+                }
+            },
+            "Candelabra Incandescent Bulb": {
+                "productInfo": {
+                    "name": "Candelabra Incandescent Bulb",
+                    "productCode": "LA042_4207",
+                    "shortDescription": "Flame-shaped screw-in bulb with clear or frosted finish",
+                    "longDescription": "Perfect for sconces and chandeliers, this bulb emits a soft light from a symmetrical B10-shaped bulb. Candelabra base is standard 1/2-inch diameter. Indoor use only.",
+                    "descriptiveAttributes": {},
+                    "maxPrice": "7.61"
+                }
+            },
+            "Linear Fluorescent Bulb": {
+                "productInfo": {
+                    "name": "Linear Fluorescent Bulb",
+                    "productCode": "LA042_4209",
+                    "shortDescription": "Shatter-resistant T12 fluorescent bulb with 2-pin base",
+                    "longDescription": "This versatile bulb can be used both indoors and outdoors. Features a special plastic coating that retains glass shards in case of breakage. Intended for use with instant-start ballasts.",
+                    "descriptiveAttributes": {},
+                    "maxPrice": "37.25"
+                }
+            },
+            "Neon Indicator Bulb": {
+                "productInfo": {
+                    "name": "Neon Indicator Bulb",
+                    "productCode": "LA042_4210",
+                    "shortDescription": "Miniature glow lamp that emits an orange-red light",
+                    "longDescription": "Typically used as indicator lamps in the displays of electronic instruments and appliances, this miniature bulb can resist shock and vibration. Rated life is up to 25,000 hours.",
+                    "descriptiveAttributes": {},
+                    "maxPrice": "12.97"
+                }
+            }
+        }
+    }
+}

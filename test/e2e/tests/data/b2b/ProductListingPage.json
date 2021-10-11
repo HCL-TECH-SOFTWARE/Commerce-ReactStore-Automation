@@ -1,0 +1,17 @@
+{
+    "test01": {
+        "maxproducts": 12,
+        "totalfilters": 2,
+        "totalProducts": "9 products",
+        "totalCards": 9,
+        "FilterByHeading": "Filter by",
+        "expectedFilters": ["Price", "Brand"],
+        "FilterByPrice": {
+            "invalidmaxprice": "0",
+            "invalidminprice": "1",
+            "maxprice": "20",
+            "minprice": "1",
+            "totalProducts": "7 products"
+        }
+    }
+}

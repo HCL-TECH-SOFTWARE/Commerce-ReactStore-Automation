@@ -1,0 +1,19 @@
+{
+    "test01": {
+        "searchTerm": "Chairs",
+        "expectedKeyword": "chairs",
+        "urlSearchTerm": "chairs",
+        "expectedSearchCount": "9",
+        "expectedProdNames": [
+            "StyleHome Comfy Dining chair",
+            "Wooden Dining Chair",
+            "Ant Chair",
+            "Dark Wooden Chair",
+            "Supreme Rocoz Vintage Sofa Chair",
+            "Wooden Cafe Chair",
+            "Wooden Angled Chair",
+            "Rustic Stained Wood Chair",
+            "Flared Accent Chair"
+        ]
+    }
+}

@@ -1,0 +1,119 @@
+{
+    "b2cuserandpass": [{
+        "username": "b2cuser",
+        "password": "b2cuder123"
+    }],
+    "b2buserandpass": [{
+        "username": "wcsautoadmin",
+        "password": "wcs1admin"
+    }],
+    "store": {
+        "sappire": "/Sapphire",
+        "sapphireId": 12,
+        "emerald": "/Emerald",
+        "emeraldId": 11,
+        "csr": "/csr"
+    },
+    "roleId": {
+        "registerCustomer": -29,
+        "buyerAdmin": -21,
+        "buyerApproval": -22,
+        "buyerBuySide": -24,
+        "csrRole": -3,
+        "csrBuyerUserRole": ["-3"],
+        "buyerRole": ["-21", "-22", "-24"],
+        "orgRole": ["-31", "-24", "-21", "-22", "-26"]
+    },
+    "approvalId": {
+        "orgApproval": ["10003", "10007"]
+    },
+    "memberTypeId": {
+        "orgGroupId": ["8000000000000003501"]
+    },
+    "admin": {
+        "username": "wcsadmin",
+        "password": "wcs1admin"
+    },
+    "userPassword": {
+        "address": {},
+        "password": "wcs1admin",
+        "passwordVerify": "wcs1admin"
+    },
+    "user": {
+        "address": {
+            "address1": "1234 Avenue Market  Near Omega Paradise  ON - 123 LKI  , Toronto, Canada, Canada - LK1 MK2",
+            "city": "Canada",
+            "email1": "storeUI@storeUI.com",
+            "firstName": "admin",
+            "lastName": "automation",
+            "personTitle": "admin",
+            "state": "Canada",
+            "zipCode": "LK1 MK2"
+        },
+        "logonId": "wcsautomationadmin3",
+        "password": "wcs2admin",
+        "passwordVerify": "wcs2admin",
+        "userAccountPolicyId": -1
+    },
+    "organization": {
+        "address": {
+            "address1": "132  Yonge St",
+            "city": "Toronto",
+            "country": "DZ",
+            "email1": "org1@mail.com",
+            "state": "Ontario",
+            "zipCode": "M4P 1E4"
+        },
+        "administratorFirstName": "Test",
+        "administratorLastName": "Org",
+        "description": "AutoOrg3",
+        "organizationName": "wcs2automationorg1",
+        "parentOrganizationId": "-2001",
+        "organizationType": "O"
+    },
+    "assignRole": {
+        "roleId": -29
+    },
+    "assignApprovalType": {
+        "approvalTypeId": "10003"
+    },
+    "assignMemberType": {
+        "exclude": "0"
+    },
+    "organizationNames": {
+        "sapphireOrg": "Sapphire%20Organization",
+        "rootOrg": "Root%20Organization"
+    },
+    "csrAdminUser": {
+        "address": {
+            "address1": "1234 Avenue Market  Near Omega Paradise  ON - 123 LKI  , Toronto, Canada, Canada - LK1 MK2",
+            "city": "Canada",
+            "email1": "storeUI@storeUI.com",
+            "firstName": "csr",
+            "lastName": "automation",
+            "personTitle": "admin",
+            "state": "Canada",
+            "zipCode": "LK1 MK2"
+        },
+        "logonId": "wcscsrautomationadmin1",
+        "password": "wcs2admin",
+        "passwordVerify": "wcs2admin",
+        "userAccountPolicyId": -1
+    },
+    "csrUser": {
+        "address": {
+            "address1": "1234 Avenue Market  Near Omega Paradise  ON - 123 LKI  , Toronto, Canada, Canada - LK1 MK2",
+            "city": "Canada",
+            "email1": "storecr@storecr.com",
+            "firstName": "csr1",
+            "lastName": "automation1",
+            "personTitle": "user",
+            "state": "Canada",
+            "zipCode": "LK1 MK2"
+        },
+        "logonId": "wcscsrautomation1",
+        "password": "wcs2admin",
+        "passwordVerify": "wcs2admin",
+        "userAccountPolicyId": -1
+    }
+}

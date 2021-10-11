@@ -1,0 +1,22 @@
+{
+    "test01": {
+        "section": 1,
+        "logonId": "autotestDefaultBuyerUser",
+        "logonIdApproveUser": "autotestApproveBuyerUser",
+        "organization": "AutomationOrganization",
+        "email": "autotest01@autotest01.com",
+        "addressline1": "autotest01",
+        "addresslineoptional2": "autotest01",
+        "city": "autotest01",
+        "country": "autotest01",
+        "state": "autotest01",
+        "postalcode": "autotest01",
+        "phone": "123456",
+        "password": "autotest012",
+        "verifyPassword": "autotest012",
+        "firstName": "Emma",
+        "lastName": "Smith",
+        "alertMsg": "Your account activation request has been received. Activate your account to log on.",
+        "duplicateLogonID": "The logon ID you entered already exists. Type a different logon ID and try again."
+    }
+}

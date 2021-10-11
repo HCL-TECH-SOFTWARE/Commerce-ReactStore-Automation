@@ -1,0 +1,23 @@
+{
+    "test01": {
+        "username": "wcsautomationadmin",
+        "currentpassword": "wcs1admin",
+        "name": "admin automation",
+        "email": "storeUI@storeUI.com",
+        "phone": "",
+        "address": "1234 Avenue Market  Near Omega Paradise  ON - 123 LKI    Toronto  Canada  Canada - LK1 MK2  , Canada, Canada - LK1 MK2",
+        "newpassword": "wcs5admin",
+        "verifynewpassword": "wcs5admin",
+        "welcomedescription": "This is your account summary. You can change your personal information and manage the options available for your account.",
+        "changepasswordalertmessage": "Password Change Successful",
+        "incorrectPassword": "The password you entered is incorrect. Type your current password in the Current Password field and try again."
+    },
+    "links": {
+        "orderhistory": "order-history",
+        "addressbook": "address-book",
+        "recurringorders": "recurring-orders",
+        "organizationmanagement": "organization-management",
+        "buyermanagement": "buyer-management",
+        "approvalsmanagement": "approvals-management"
+    }
+}

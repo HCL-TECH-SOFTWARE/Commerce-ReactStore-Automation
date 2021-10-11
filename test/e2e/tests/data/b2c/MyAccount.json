@@ -1,0 +1,29 @@
+{
+    "register": {
+        "email": "myaccount@yahoo.in",
+        "password": "diet4coke",
+        "firstName": "test2myaccount",
+        "lastName": "lastName"
+    },
+    "test01": {
+        "email": "myaccount@yahoo.in",
+        "password": "diet4coke",
+        "expectedpagename": "My Account",
+        "expectedName": "test2myaccount lastName",
+        "expectedEmail": "myaccount@yahoo.in",
+        "emailIndex": 1,
+        "expectedCurrency": "USD",
+        "currencyIndex": 2
+    },
+    "test02": {
+        "email": "myaccount@yahoo.in",
+        "password": "diet4coke",
+        "currentPwd": "diet4coke",
+        "currentPassword": "logonPasswordOld",
+        "newPwd": "diet4coke!",
+        "newPassword": "logonPassword",
+        "verifyPwd": "diet4coke!",
+        "verifyPassword": "logonPasswordVerify",
+        "updatePasswordMsg": "Password Change Successful"
+    }
+}

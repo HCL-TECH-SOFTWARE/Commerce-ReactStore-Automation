@@ -1,0 +1,30 @@
+{
+    "css": {
+        "textField": {
+            "valid": ["border-color", "rgba(244,67,54,1)"],
+            "invalid": ["border-color", "rgba(244,67,54,1)"]
+        }
+    },
+    "test01": {
+        "email": "addressbook@test.com",
+        "password": "Hcl4ever!",
+        "AddressBookPage": {
+            "defaultCount": "You have no saved addresses.",
+            "addressType": "Shipping",
+            "shipAddress": {
+                "nickName": "shipAddress1",
+                "firstName": "addressbookfirst",
+                "lastName": "addressbooklast",
+                "addressLine1": "170 Enterprise Blvd",
+                "addressLine2": "Radisson",
+                "city": "Markham City",
+                "country": "Canada",
+                "state": "Ontario",
+                "zipCode": "L6G 0E6",
+                "phone1": "111-222-3333",
+                "email1": "address@shipping.com"
+            },
+            "expectedAlertMsg": "Your new address \"shipAddress1\" has been added successfully"
+        }
+    }
+}

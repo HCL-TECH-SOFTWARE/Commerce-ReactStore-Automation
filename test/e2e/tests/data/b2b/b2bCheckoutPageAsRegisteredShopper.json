@@ -1,0 +1,71 @@
+{
+    "quantity": {
+        "One": 1,
+        "Two": 2,
+        "Three": 3,
+        "Four": 4,
+        "hundredAndOne": 101,
+        "hundredAndTwo": 102
+    },
+    "alertmsg": {
+        "itemAdded1": "Item was added to cart. ",
+        "insufficientInventory": "There is insufficient inventory to purchase",
+        "invalidEmptyQunatiy": "The values in the Quantity fields are invalid or empty. Ensure the values are positive integers and try again."
+    },
+    "orderConfirmation": {
+        "orderReceived": "We've received your order",
+        "receiptDetails": "A copy of your receipt has been sent to",
+        "acknowledgeMsg": "Thank you for shopping at Sapphire."
+    },
+    "test01": {
+        "user": "register",
+        "addcartAlertMsg": "Item was added to cart.",
+        "shippingMethod": "Mail",
+        "paymentMethod": "Cash on delivery",
+        "addressBook": [{
+                "nickName": "ShipAddress",
+                "firstName": "CaliGuestcheckoutfirst",
+                "lastName": "CaliGuestcheckoutlast",
+                "addressLine1": "Los Angeles street address checkout",
+                "addressLine2": "Los Angeles street address2 checkout2",
+                "country": "United States",
+                "city": "Los Angeles guest checkout",
+                "state": "California",
+                "zipCode": "90001",
+                "phone1": "3334441111",
+                "email1": "CaliAddress@test.com"
+            },
+            {
+                "nickName": "BillAddress",
+                "firstName": "CaliGuestcheckoutfirst",
+                "lastName": "CaliGuestcheckoutlast",
+                "addressLine1": "Los Angeles street address checkout",
+                "addressLine2": "Los Angeles street address2 checkout2",
+                "country": "United States",
+                "city": "Los Angeles guest checkout",
+                "state": "California",
+                "zipCode": "90002",
+                "phone1": "3334441111",
+                "email1": "CaliAddress@test.com"
+            },
+            {
+                "nickName": "ShipAddress2",
+                "firstName": "CaliGuest",
+                "lastName": "CaliGuest",
+                "addressLine1": "Los Angeles street address checkout",
+                "addressLine2": "Los Angeles street address2 checkout2",
+                "country": "United States",
+                "city": "Los Angeles guest checkout",
+                "state": "California",
+                "zipCode": "90001",
+                "phone1": "3334441111",
+                "email1": "CaliAddress@test.com"
+            }
+        ],
+        "orderStatus": "Order received and ready for processing"
+    },
+    "buttonColor": {
+        "backgroundColorEnabled": "rgba(0,145,255,1)",
+        "backgroundColorDisabled": "rgba(1,111,194,1)"
+    }
+}
