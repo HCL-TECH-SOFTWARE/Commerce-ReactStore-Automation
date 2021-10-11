@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "module": "commonjs",
+    "sourceMap": false,
+    "removeComments": true,
+    "noImplicitAny": true,
+    "strictPropertyInitialization": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "outDir": "./.tsbuild",
+    "baseUrl": "./",
+    "types": [
+      "node",
+      "webdriverio/sync",
+      "@wdio/jasmine-framework",
+      "@wdio/allure-reporter"
+    ]
+  },
+  "include": ["./test/e2e/**/*.ts", "./test/e2e/**/**/*.ts"],
+  "compileOnSave": false
+}
