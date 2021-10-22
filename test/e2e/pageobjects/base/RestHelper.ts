@@ -1,4 +1,14 @@
-// API code
+/*
+*-----------------------------------------------------------------
+•	Licensed Materials - Property of HCL Technologies
+•	
+•	
+•	HCL Commerce
+•	
+•	(C) Copyright HCL Technologies Limited 2020, 2021
+•	
+*-----------------------------------------------------------------
+*/
 import { Utils } from '../pages/Utils.po'
 import axios from 'axios'
 import https = require('https')

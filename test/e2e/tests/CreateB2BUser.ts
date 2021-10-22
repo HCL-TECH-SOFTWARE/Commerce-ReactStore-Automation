@@ -1,3 +1,14 @@
+/*
+*-----------------------------------------------------------------
+•	Licensed Materials - Property of HCL Technologies
+•	
+•	
+•	HCL Commerce
+•	
+•	(C) Copyright HCL Technologies Limited 2020, 2021
+•	
+*-----------------------------------------------------------------
+*/
 import { RestHelper } from '../pageobjects/base/RestHelper'
 import configFile = require('./data/UserManagementData.json')
 import envConfig = require('../../../env.config.json')
