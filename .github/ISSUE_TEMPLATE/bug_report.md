@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 **HCL Product Version**
-Which version of the commerce is in use, what operating system it is running on, and which version nodejs and chrome it is running on.
+Which version of the commerce is in use, what operating system it is running on, and which version of nodejs and chrome it is using.
 
 **Describe the bug**
 A clear and concise description of what the bug is.
