@@ -19,7 +19,7 @@ Code is under the [Apache 2.0 License](/LICENSE.txt).
 1. Run `npm install` to install dependencies then run e2e tests
 
 
-### Setting up workspace
+### To Setup workspace
 1. Launch gitbash from `/c/gitlab`
     1. git clone `<test-react-store-ui-url>`	
 2. Open Visual Studio Code, open folder `/c/gitlab/test-react-store-ui`
