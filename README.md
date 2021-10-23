@@ -1,4 +1,12 @@
-# HCL Commerce Store Test Automation
+# Commerce React Store Automation Framework
+This framework is an e2e testing framework. It has basic set of test cases which includes the main flows from the sample stores. Customer can use this framework to design and run their own set of regression test cases according to the instruction given in the [Readme.md](/Readme.md).
+
+## Issues
+If you find issues/bug please open up an issue in the repo with your node version info along with the stack trace.
+See [bug_report.md](/.github/ISSUE_TEMPLATE/bug_report.md) for details on how to raise an issue.
+
+## License
+Code is under the [Apache 2.0 License](/LICENSE.txt).
 
 ## Pre-requisites
 * Install LTS version of `node` on your client test environment (Latest LTS version - 14.17.6)
