@@ -1,5 +1,5 @@
 # Commerce React Store Automation Framework
-This framework is an e2e testing framework. It has basic set of test cases which includes the main flows from the sample stores. Customer can use this framework to design and run their own set of regression test cases according to the instruction given in the [Readme.md](/Readme.md).
+This framework is an e2e testing framework. It has basic set of test cases which includes the main flows from the sample stores. Customer can use this framework to design and run their own set of regression test cases according to the instruction given in the [Readme.md](/README.md).
 
 ## Issues
 If you find issues/bug please open up an issue in the repo with your node version info along with the stack trace.
