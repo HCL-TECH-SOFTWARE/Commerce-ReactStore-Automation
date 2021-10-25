@@ -9,8 +9,9 @@ See [bug_report.md](/.github/ISSUE_TEMPLATE/bug_report.md) for details on how to
 Code is under the [Apache 2.0 License](/LICENSE.txt).
 
 ## Pre-requisites
-* Install LTS version of `node` on your client test environment (Latest LTS version - 14.17.6)
-* Install `chrome` (chrome version should be compatible with chromedriver version mentioned in ./test-react-store-ui/package.json)
+* Install LTS version of `NodeJs` on your client test environment (Latest LTS version - 14.17.6)
+* Install `chrome browser` (chrome version should be compatible with chromedriver version mentioned in ./test-react-store-ui/package.json)
+* Java installed and added to path
 * Storefront should be up and running
 
 ## Setup 
