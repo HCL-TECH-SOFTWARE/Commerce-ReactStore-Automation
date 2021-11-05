@@ -1,13 +1,19 @@
 /*
-*-----------------------------------------------------------------
-•	Licensed Materials - Property of HCL Technologies
-•	
-•	
-•	HCL Commerce
-•	
-•	(C) Copyright HCL Technologies Limited 1996, 2020
-•	
-*-----------------------------------------------------------------
+# Copyright 2021 HCL America, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# The script sets up necessary environment variables to run DX in a docker-compose environment
 */
 var fs = require('fs');
 var moment = require('moment');
@@ -19,10 +25,10 @@ exports.config = {
 
     runner: 'local',
     specs: [
-        // './test/e2e/tests/CreateB2BUser.ts',
-        // './test/e2e/tests/b2b/*.ts',
+        './test/e2e/tests/CreateB2BUser.ts',
+        './test/e2e/tests/b2b/*.ts',
         './test/e2e/tests/b2c/*.ts',
-        //'./test/e2e/tests/DeleteUser.ts'
+        './test/e2e/tests/DeleteUser.ts'
     ],
 
     exclude: [
