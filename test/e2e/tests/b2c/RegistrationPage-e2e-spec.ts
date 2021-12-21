@@ -41,6 +41,7 @@ describe('B2C- Register a new user in emerald store', function () {
     //Launch emerald store-front
     browser.url(storeName.emerald)
     const homePage = new HomePage()
+    homePage.signOutIfSignedIn()
     //Navigate to sign-in/registration page
     homePage.signIn()
     //Registration page

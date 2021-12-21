@@ -36,6 +36,7 @@ describe('B2C- User views My Account Page and Change Password in emerald store',
     browser.url(storeName.emerald)
     //Navigate to sign-in/registration page
     homePage = new HomePage()
+    homePage.signOutIfSignedIn()
     const buyer: RegistrationPage = homePage.signIn()
     buyer.registernow()
     //create user
