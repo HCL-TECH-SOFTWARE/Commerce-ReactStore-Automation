@@ -12,7 +12,7 @@ Code is under the [Apache 2.0 License](/LICENSE.txt).
 * Install LTS version of `NodeJs` on your client test environment (Latest LTS version - 14.17.6)
 * Install `chrome browser` (chrome version should be compatible with chromedriver version mentioned in ./test-react-store-ui/package.json)
 * Java installed and added to path
-* Storefront should be up and running
+* Install Commerce v9.1.8.0, Storefront should be up and running
 
 ## Setup 
 1. Extract react-store-ui-test.zip into a new folder `<extract_folder>`. Ensure that you see the `<extract_folder>/react-store-ui-test` folder.
