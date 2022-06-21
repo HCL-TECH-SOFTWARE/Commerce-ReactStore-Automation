@@ -1,7 +1,7 @@
 {
-    "homepage": {
-        "pageTitle": "Emerald",
-        "SignInButtonText": "Sign In",
-        "defaultCartCount": "0 Items"
+    "homepage" : {
+        "pageTitle" :  "Emerald",
+        "SignInButtonText" : "Sign In",
+        "defaultCartCount" : "0 Items"
     }
 }

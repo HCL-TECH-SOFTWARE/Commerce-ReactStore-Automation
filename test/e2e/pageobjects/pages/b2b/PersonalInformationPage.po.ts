@@ -1,5 +1,5 @@
 /*
-# Copyright 2021 HCL America, Inc.
+# Copyright 2022 HCL America, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,144 +12,146 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-# The script sets up necessary environment variables to run DX in a docker-compose environment
 */
-import { Utils } from '../Utils.po'
-import fs = require('fs')
-import * as envConfig from '../../../../../env.config.json'
+import { Utils } from "../Utils.po";
+import { RestHelper } from "../../base/RestHelper";
+
 //Personal Information Page Page class is used to handle the object of Organization Dashboard Page
 export class PersonalInformation {
-  util = new Utils()
-  personalInformationHeader = '//h4'
-  welcomeMsg = "//h6[contains(text(),'Welcome')]"
-  welcomeDescription = '//h6/following-sibling::p'
-  alertMsgForChangePassword = $("//div[@role='dialog']/div")
-  dashboardLink = $("//a[contains(@href,'dashboard')]")
-  incorrectCurrentPasswordAlert = "//div[@class='MuiAlert-message']"
-  constructor () {
-    $(this.personalInformationHeader).waitForDisplayed()
+  util = new Utils();
+  personalInformationHeader = "//h5[contains(text(),'Personal Information')]";
+  welcomeMsg = "//h4[contains(text(),'Welcome')]";
+  alertMsgForChangePassword = $("//div[@role='dialog']/div[2]");
+  dashboardLink = $("//a[contains(@href,'dashboard')]");
+  incorrectCurrentPasswordAlert = "//div[@class='MuiAlert-message']";
+  private savePI = "button-personal-information-save-edit";
+  private editPI = "button-edit-personal-info";
+  private chgPw = "button-change-password-dialog-open";
+  private savePw = "button-change-password-dialog-submit";
+  private dialogClose = "close-dialog-title-icon-button";
+
+  static async get() {
+    const p = new PersonalInformation();
+    await p.validate();
+    return p;
   }
+
+  private constructor() {}
+
+  async validate() {
+    await $(this.personalInformationHeader).waitForDisplayed();
+    await this.util.waitForElementTobeVisible(await $(`//button[@data-testid="${this.chgPw}"]`));
+  }
+
+  async editPersonalInfo() {
+    await this.util.buttonClickById(this.editPI);
+    await this.util.waitForElementTobeVisible(await $(`//button[@data-testid="${this.savePI}"]`));
+  }
+
+  async changePassword() {
+    await this.util.buttonClickById(this.chgPw);
+    await this.util.waitForElementTobeVisible(await $(`//button[@data-testid="${this.savePw}"]`));
+  }
+
+  async savePassword() {
+    await this.util.buttonClickById(this.savePw);
+  }
+
   /**
    * Used to verfiy text value
    * @param fieldName pass field name
    * @param expectedValue pass expected value
    */
-  verifyTextValue (fieldName: string, expectedValue: string) {
-    const selector = "//label[text()='" + fieldName + "']/../div/input"
-    expect($(selector).getAttribute('value')).toBe(
-      expectedValue,
-      fieldName + ': is not equal to expected value(' + expectedValue
-    )
+  async verifyTextValue(fieldName: String, expectedValue: string) {
+    const selector = "//label[text()='" + fieldName + "']/../div/input";
+    await expect(await $(selector).getAttribute("value")).toBe(expectedValue);
+  }
+  /**
+   * Used to verify broken links from the page
+   */
+  async verifyBrokenlinks() {
+    //get all links on the page
+    const links = await $$("a");
+    const urls = await Promise.all(links.map(async (links) => await links.getAttribute("href")));
+    for (const url of urls) {
+      console.log(url);
+    }
   }
   /**
    * Used to verify single link
    * @param linkName pass link name
    */
-  verifylinks (linkName: string) {
-    const links = "//a[contains(@href,'" + linkName + "')]"
-    expect($(links).isDisplayed()).toBe(
-      true,
-      linkName + ' is not displayed or its not a link'
-    )
-  }
-  /**
-   * Used to click on dashboard link
-   */
-  dashboard () {
-    browser.waitUntil(() => this.dashboardLink.isDisplayed() === true, {
-      timeout: envConfig.timeout.maxtimeout,
-      timeoutMsg: 'Dashboard Link is not displayed'
-    })
-    this.dashboardLink.waitForDisplayed()
-    this.dashboardLink.click()
+  async verifylinks(linkName: string) {
+    const links = "//a[contains(@href,'" + linkName + "')]";
+    await expect(await $(links).isDisplayed()).toBe(true);
   }
   /**
    * Used to verify Personal Information Page heading
    */
-  verifyPersonalInformationPageHeading () {
-    this.util.verifyText(
-      'Personal Information',
-      this.personalInformationHeader,
-      'Page Heading'
-    )
+  async verifyPersonalInformationPageHeading() {
+    await this.util.verifyText("Personal Information", this.personalInformationHeader, "Page Heading");
   }
   /**
    * Used to verify Welcome message
    */
-  verifyWelcomeMsg () {
-    this.util.verifyText('Welcome', this.welcomeMsg, 'Welcome Message')
+  async verifyWelcomeMsg() {
+    await this.util.verifyText("Welcome", this.welcomeMsg, "Welcome Message");
   }
-  /**
-   * Used to verify Welcome Description
-   */
-  verifyWelcomeDecription (welcomeDescription: string) {
-    this.util.verifyText(
-      welcomeDescription,
-      this.welcomeDescription,
-      'Welcome Description'
-    )
-  }
+
   /**
    * Used to set value on web page
    * @param fieldName : pass field name
    * @param fieldValue : pass field value
    */
-  type (fieldName: string, fieldValue: string) {
-    const selector = "//label[text()='" + fieldName + "']/../div/input"
-    this.util.clearValue(selector)
-    this.util.setValue(fieldValue, selector)
+  async type(fieldName: string, fieldValue: string) {
+    const selector = `//label[text()="${fieldName}"]/../div/input`;
+    await this.util.clearValue(selector);
+    await this.util.setValue(fieldValue, selector);
   }
+
+  async verifySaveDisabled() {
+    await this.util.verifyBtnNotClickableById(this.savePI);
+  }
+
+  async verifySavePwDisabled() {
+    await this.util.verifyBtnNotClickableById(this.savePw);
+  }
+
   /**
    * Used to verify update button is disabled
+   * @deprecated
    */
-  verifyUpdatebtnDisabled () {
-    this.util.verifyBtnNotClickable('Update')
+  async verifyUpdatebtnDisabled() {
+    await this.util.verifyBtnNotClickable("Change Password");
   }
-  /**
-   * Used to click on update passoword button
-   */
-  updatePassword () {
-    this.util.handleOnClickBtn('Update')
-  }
+
   /**
    * Used to verify change password alert
    * @param expectedAlertMessage : pass expected message
    */
-  verifyChangePasswordAlert (expectedAlertMessage: string) {
-    browser.waitUntil(
-      () => this.alertMsgForChangePassword.isDisplayed() === true,
-      {
-        timeout: envConfig.timeout.maxtimeout,
-        timeoutMsg: 'Add to current order button is not displayed'
-      }
-    )
-    expect(this.alertMsgForChangePassword.getText()).toBe(
-      expectedAlertMessage,
-      'No Alert message for password, Unable to update the password'
-    )
-    this.util.handleOnClickBtn('OK')
+  async verifyChangePasswordAlert(expectedAlertMessage: string) {
+    await expect(await this.alertMsgForChangePassword.getText()).toBe(expectedAlertMessage);
+    await this.util.buttonClickById(this.dialogClose);
+  }
+
+  /**
+   * Method is used to verify the alert Message for incorrect password
+   * @param expectedAlertMessage : pass the expected message to be display
+   */
+  async verifyIncorrectCurrentPasswordAlert(expectedAlertMessage: string) {
+    await this.util.verifyDialogAlertMsg(expectedAlertMessage, this.incorrectCurrentPasswordAlert);
+  }
+  /**
+   * Method is used to verify the Password policy alert message
+   * @param expectedAlertMessage : pass the expected message to be display
+   */
+  async verifyPasswordPolicyAlertMessage(expectedAlertMessage: string) {
+    await this.util.verifyDialogAlertMsg(expectedAlertMessage, this.incorrectCurrentPasswordAlert);
   }
   /**
    * Used to store password to runtime json
    */
-  storePassword (testDataPassword: string) {
-    const path = 'runtime.json'
-    try {
-      fs.unlinkSync(path)
-    } catch (err) {
-      console.error(err)
-    }
-    const json = {
-      password: testDataPassword
-    }
-    fs.writeFileSync('runtime.json', JSON.stringify(json))
-  }
-  /**
-   * Used to validate button not clickable
-   * @param buttonName : pass buttonName as a string
-   */
-  verifyButtonIsNotClickable (buttonName: string) {
-    this.util.verifyBtnNotClickable(buttonName)
+  async storePassword(testDataPassword: string) {
+    RestHelper.writeRuntimeJSON({ password: testDataPassword });
   }
 }

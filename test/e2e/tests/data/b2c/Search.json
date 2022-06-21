@@ -4,6 +4,14 @@
         "expectedKeyword": "chairs",
         "urlSearchTerm": "chairs",
         "expectedSearchCount": "9",
+        "totalFilters": 3,
+        "expectedFilters": ["Price", "Brand", "Category"],
+        "filterByBrand": {
+            "brand": "Stonehenge",
+            "filterResult": 1,
+            "totalProducts": "1 products",
+            "totalCards": 1
+        },
         "expectedProdNames": [
             "StyleHome Comfy Dining chair",
             "Wooden Dining Chair",
@@ -14,6 +22,11 @@
             "Wooden Angled Chair",
             "Rustic Stained Wood Chair",
             "Flared Accent Chair"
-        ]
+        ],
+        "filterByPrice": {
+            "maxprice": "90",
+            "minprice": "80",
+            "totalCards": 1
+        }
     }
 }

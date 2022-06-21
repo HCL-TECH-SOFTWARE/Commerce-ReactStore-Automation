@@ -15,7 +15,7 @@
                     "breadIndex": 3,
                     "numberofsubtype": "24",
                     "name": "T-Handle Bolt",
-                    "sku": "SKU: FB041_4101",
+                    "sku": "SKU:FB041_4101",
                     "shortDescription": "Medium-strength clamping pin",
                     "longDescription": "This multi-purpose bolt provides superior clamping action. Adjustable collar must be welded in place to suit the application. Available in a black oxide finish to resist rust.",
                     "subproduct": {
@@ -23,46 +23,41 @@
                             "sku": "FB041_410101",
                             "finish": "Unfinished",
                             "length": "3 1/4\"",
-                            "material": "Stainless steel",
                             "price": "$22.25",
                             "quantity": "1",
-                            "onlineavailability": "In Stock"
+                            "onlineavailability": "In stock online"
                         },
                         "type2": {
                             "sku": "FB041_410102",
                             "finish": "Unfinished",
                             "length": "3 1/4\"",
-                            "material": "Stainless steel",
                             "price": "$22.25",
                             "quantity": "1",
-                            "onlineavailability": "In Stock"
+                            "onlineavailability": "In stock online"
                         },
                         "type3": {
                             "sku": "FB041_410103",
                             "finish": "Unfinished",
                             "length": "4 3/8\"",
-                            "material": "Stainless steel",
                             "price": "$22.25",
                             "quantity": "1",
-                            "onlineavailability": "In Stock"
+                            "onlineavailability": "In stock online"
                         },
                         "type4": {
                             "sku": "FB041_410104",
                             "finish": "Unfinished",
                             "length": "4 3/8\"",
-                            "material": "Stainless steel",
                             "price": "$22.25",
                             "quantity": "1",
-                            "onlineavailability": "In Stock"
+                            "onlineavailability": "In stock online"
                         },
                         "type5": {
                             "sku": "FB041_410105",
                             "finish": "Unfinished",
                             "length": "4 3/8\"",
-                            "material": "Stainless steel",
                             "price": "$22.25",
                             "quantity": "1",
-                            "onlineavailability": "In Stock"
+                            "onlineavailability": "In stock online"
                         }
                     }
                 }

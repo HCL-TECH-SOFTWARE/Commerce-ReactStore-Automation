@@ -1,5 +1,5 @@
 /*
-# Copyright 2021 HCL America, Inc.
+# Copyright 2022 HCL America, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,41 +12,41 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-# The script sets up necessary environment variables to run DX in a docker-compose environment
 */
-import { HomePage } from '../../pageobjects/pages/b2b/HomePage.po'
-import { SearchResultPage } from '../../pageobjects/pages/b2b/SearchResultPage.po'
-import dataFile = require('../data/b2b/Search.json')
-import configFile = require('../data/UserManagementData.json')
+import { HomePage } from "../../pageobjects/pages/b2b/HomePage.po";
+import { SearchResultPage } from "../../pageobjects/pages/b2b/SearchResultPage.po";
+import { Utils } from "../../pageobjects/pages/Utils.po";
+import dataFile from "../data/b2b/Search.json";
+import configFile from "../data/UserManagementData.json";
 
-describe('B2B - User views the search results page', () => {
-  const storeName = configFile.store
-  afterEach(function () {
-    browser.deleteAllCookies()
-    browser.execute(() => localStorage.clear())
-    browser.execute(() => sessionStorage.clear())
-  })
-  it('Test01 - To search for a product with matching results', () => {
-    console.log('Test01 - To search for a product with matching results')
-    const testData = dataFile.test01
+describe("B2B.Search - User views the search results page", () => {
+  const storeName = configFile.store;
+  let m: string;
+
+  afterEach(async function () {
+    await browser.deleteAllCookies();
+    await browser.execute(() => localStorage.clear());
+    await browser.execute(() => sessionStorage.clear());
+  });
+  it("Test01 - To search for a product with matching results", async () => {
+    m = "Search.Test01";
+    Utils.log(m, "To search for a product with matching results");
+    const testData = dataFile.test01;
     //Navigate to store-front
-    browser.url(storeName.sappire)
+    await browser.url(storeName.sapphire);
     //Verify storefront loaded
-    const homePage = new HomePage()
+    const homePage = new HomePage();
     //Navigate to search box and input some text
-    homePage.inputSearchText(testData.searchTerm)
+    await homePage.inputSearchText(testData.searchTerm);
     //Click on the first suggested keyword
-    const searchpage: SearchResultPage = homePage.clickSearchKeyword(
-      testData.expectedKeyword
-    )
+    const searchpage: SearchResultPage = await homePage.clickSearchKeyword(testData.expectedKeyword);
     //Verify search term in page url
-    searchpage.verifySearchTermUrl(testData.urlSearchTerm)
+    await searchpage.verifySearchTermUrl(testData.urlSearchTerm);
     //expected product present
-    searchpage.verifyNumberOfProductText(testData.expectedSearchCount)
-    const products: string[] = testData.expectedProdNames
-    products.forEach(product => {
-      searchpage.verifyProductByName(product)
-    })
-  })
-})
+    await searchpage.verifyNumberOfProductText(testData.expectedSearchCount);
+    const products: string[] = testData.expectedProdNames;
+    for (const product of products) {
+      await searchpage.verifyProductByName(product);
+    }
+  });
+});

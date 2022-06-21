@@ -1,65 +1,119 @@
 {
-    "register": {
-        "email": "shopper.user@checkout.com",
-        "password": "diet4coke",
-        "firstName": "shopper",
-        "lastName": "user"
-    },
-    "totalProducts": {
-        "One": 1,
-        "Two": 2,
-        "Three": 3,
-        "Four": 4
-    },
-    "buttonColor": {
-        "backgroundColorEnabled": "rgba(0,152,116,1)",
-        "backgroundColorDisabled": "rgba(0,112,85,1)"
-    },
-    "quantity": {
-        "One": 1,
-        "Two": 2,
-        "Three": 3,
-        "Four": 4
-    },
-    "alertmsg": {
-        "addcartAlertMsg": "Item was added to cart."
-    },
-    "orderConfirmation": {
-        "orderReceived": "We've received your order",
-        "receiptDetails": "A copy of your receipt has been sent to",
-        "acknowledgeMsg": "Thank you for shopping at Emerald."
-    },
-    "test01": {
-        "user": "register",
-        "addcartAlertMsg": "Item was added to cart.",
-        "shippingMethod": "US - Overnight Delivery",
-        "paymentMethod": "Cash on delivery",
-        "addressBook": [{
-                "nickName": "ShipAddress",
-                "firstName": "CaliGuestcheckoutfirst",
-                "lastName": "CaliGuestcheckoutlast",
-                "addressLine1": "Los Angeles street address checkout",
-                "addressLine2": "Los Angeles street address2 checkout2",
-                "country": "United States",
-                "city": "Los Angeles guest checkout",
-                "state": "California",
-                "zipCode": "90001",
-                "phone1": "3334441111",
-                "email1": "CaliAddress@test.com"
-            },
-            {
-                "nickName": "BillAddress",
-                "firstName": "CaliGuestcheckoutfirst",
-                "lastName": "CaliGuestcheckoutlast",
-                "addressLine1": "Los Angeles street address checkout",
-                "addressLine2": "Los Angeles street address2 checkout2",
-                "country": "United States",
-                "city": "Los Angeles guest checkout",
-                "state": "California",
-                "zipCode": "90002",
-                "phone1": "3334441111",
-                "email1": "CaliAddress@test.com"
-            }
-        ]
-    }
+  "register": {
+    "email": "shopper.user@checkout.com",
+    "password": "diet4coke",
+    "firstName": "shopper",
+    "lastName": "user"
+  },
+  "register1": {
+    "email": "shopper1.user@checkout.com",
+    "password": "diet4coke",
+    "firstName": "shopper1",
+    "lastName": "user"
+  },
+  "register2": {
+    "email": "shopper2.user@checkout.com",
+    "password": "diet4coke",
+    "firstName": "shopper2",
+    "lastName": "user"
+  },
+  "register3": {
+    "email": "shopper3.user@checkout.com",
+    "password": "diet4coke",
+    "firstName": "shopper3",
+    "lastName": "user"
+  },
+  "register4": {
+    "email": "shopper4.user@checkout.com",
+    "password": "diet4coke",
+    "firstName": "shopper4",
+    "lastName": "user"
+  },
+  "multiShipRegister": {
+    "email": "registeredmultiship.user@checkout.com",
+    "password": "wcs1admin",
+    "firstName": "testMultiShip",
+    "lastName": "lastName"
+  },
+  "totalProducts": {
+    "One": 1,
+    "Two": 2,
+    "Three": 3,
+    "Four": 4
+  },
+  "buttonColor": {
+    "backgroundColorEnabled": "rgba(0,152,116,1)",
+    "backgroundColorDisabled": "rgba(0,112,85,1)"
+  },
+  "quantity": {
+    "One": 1,
+    "Two": 2,
+    "Three": 3,
+    "Four": 4,
+    "hundredAndOne": 101,
+    "hundredAndTwo": 102
+  },
+  "alertmsg": {
+    "addcartAlertMsg": "Item was added to cart.",
+    "insufficientInventory": "There is insufficient inventory to purchase"
+  },
+  "orderConfirmation": {
+    "orderReceived": "We've received your order",
+    "receiptDetails": "A copy of your receipt has been sent to",
+    "acknowledgeMsg": "Thank you for shopping at Emerald."
+  },
+  "test01": {
+    "user": "register",
+    "addcartAlertMsg": "Item was added to cart.",
+    "shippingMethod": "US - Overnight Delivery",
+    "paymentMethod": "Cash on delivery",
+    "addressBook": [
+      {
+        "nickName": "ShipAddress",
+        "firstName": "CaliGuestcheckoutfirst",
+        "lastName": "CaliGuestcheckoutlast",
+        "addressLine1": "Los Angeles street address checkout",
+        "addressLine2": "Los Angeles street address2 checkout2",
+        "country": "United States",
+        "city": "Los Angeles guest checkout",
+        "state": "California",
+        "zipCode": "90001",
+        "phone1": "3334441111",
+        "email1": "CaliAddress@test.com"
+      },
+      {
+        "nickName": "BillAddress",
+        "firstName": "CaliGuestcheckoutfirst",
+        "lastName": "CaliGuestcheckoutlast",
+        "addressLine1": "Los Angeles street address checkout",
+        "addressLine2": "Los Angeles street address2 checkout2",
+        "country": "United States",
+        "city": "Los Angeles guest checkout",
+        "state": "California",
+        "zipCode": "90002",
+        "phone1": "3334441111",
+        "email1": "CaliAddress@test.com"
+      },
+      {
+        "nickName": "ShipAddress2",
+        "firstName": "CaliGuest",
+        "lastName": "CaliGuest",
+        "addressLine1": "Los Angeles street address checkout addressLine1",
+        "addressLine2": "Los Angeles street address2 checkout2 addressLine2",
+        "country": "United States",
+        "city": "Los Angeles guest checkout",
+        "state": "California",
+        "zipCode": "90001",
+        "phone1": "3334441111",
+        "email1": "CaliAddress@test.com"
+      }
+    ],
+    "editAddressBook": [
+      {
+        "addressLine1": "edit"
+      }
+    ],
+    "orderStatus": "Order received and ready for processing"
+  },
+  "invalidOrderId": "avg23!@34"
 }

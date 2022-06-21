@@ -1,4 +1,10 @@
 {
+    "register": {
+        "email": "register1.user@test.com",
+        "password": "diet4coke",
+        "firstName": "William",
+        "lastName": "Smith"
+    },
     "test01": {
         "email": "msr1@test.com",
         "password": "Hcl4ever!",

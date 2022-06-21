@@ -19,7 +19,7 @@
                     "priceOffering": 749.99,
                     "imageFull": "cafe_chair_a1_600.jpg",
                     "attributes": {
-                        "Color": "Pine"
+                        "Color": "Cedar"
                     }
                 }
             },
@@ -27,6 +27,7 @@
                 "productInfo": {
                     "name": "Wooden Cafe Chair",
                     "productCode": "LR-FNTR-0008",
+                    "sku": "LR-FNTR-0008-0003",
                     "shortDescription": "This classic chair marries form and function together to provide timeless appeal, comfort and stability.",
                     "longDescription": "The classic Wooden Cafe Chair marries form and function together to provide timeless appeal and sophistication with comfort and stability. Designed with a broad concave backrest and a generous curved seat the contoured form allows the body relax through extended periods of sitting. The Wooden Cafe Chairâ€™s organic, streamlined shape allows it to fit in natually in any kind of setting, be it a restaurant, cafe or at your breakfast table.",
                     "descriptiveAttributes": {}
@@ -52,7 +53,17 @@
             },
             "Flared Accent Chair": {
                 "productInfo": {
-                    "name": "Flared Accent Chair"
+                    "name": "Flared Accent Chair",
+                    "productCode": "LR-FNTR-0002"
+                },
+                "LR-FNTR-0002-0001": {
+                    "sku": "LR-FNTR-0002-0001",
+                    "priceList": 600.0,
+                    "priceOffering": 549.99,
+                    "imageFull": "chair2_a1_600.jpg",
+                    "attributes": {
+                        "Color": "Crimson"
+                    }
                 }
             }
         },
