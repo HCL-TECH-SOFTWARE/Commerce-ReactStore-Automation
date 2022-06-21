@@ -1,6 +1,6 @@
 {
   "name": "commerce-reactstore-automation",
-  "version": "9.1.10",
+  "version": "9.1.11",
   "scripts": {
     "_test": "npx wdio wdio.conf.js",
     "test": "npm-run-all \"_test -- {1}\"",
