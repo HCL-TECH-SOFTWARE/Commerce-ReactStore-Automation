@@ -6,12 +6,5 @@
         "categoryIndex": 2,
         "pageTitle": "Living Room | Emerald",
         "totalBreadCrumbs": 2
-    },
-    "test02": {
-        "categoryIndex": 2,
-        "breadcrumb0": "Bath",
-        "breadcrumb1": "Fixtures",
-        "pageTitle": "Bath | Emerald",
-        "totalBreadCrumbs": 2
     }
 }

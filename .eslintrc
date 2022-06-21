@@ -1,0 +1,48 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "extends": [
+    "eslint:recommended",
+    "prettier",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "@typescript-eslint/no-explicit-any": [
+      "off"
+    ],
+    "prefer-const": 1,
+    "no-var": 1,
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-empty-function": "off"
+  },
+  "ignorePatterns": [
+    "**/setupProxy.js",
+    "**/*.scss",
+    "**/*.json",
+    "**/*.sh",
+    "**/.gitignore",
+    ".eslintrc",
+    "**/apis/mock/",
+    "**/__tests__/",
+    "**/assets/",
+    "**/build/",
+    "**/dist/",
+    "**/mocks",
+    "**/public/",
+    "**/tools/",
+    "**/README.md",
+    "*.js"
+  ]
+}

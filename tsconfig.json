@@ -1,23 +1,26 @@
 {
   "compilerOptions": {
+    "outDir": "./.tsbuild/",
+    "sourceMap": false,
     "target": "es2019",
     "module": "commonjs",
-    "sourceMap": false,
     "removeComments": true,
     "noImplicitAny": true,
     "strictPropertyInitialization": true,
     "strictNullChecks": true,
-    "skipLibCheck": true,
     "resolveJsonModule": true,
-    "outDir": "./.tsbuild",
-    "baseUrl": "./",
+    "skipLibCheck": true, /* Skip type checking of declaration files. */
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
     "types": [
       "node",
-      "webdriverio/sync",
-      "@wdio/jasmine-framework",
-      "@wdio/allure-reporter"
-    ]
+      "webdriverio/async",
+      "expect-webdriverio",
+      "@wdio/jasmine-framework"
+    ],
   },
-  "include": ["./test/e2e/**/*.ts", "./test/e2e/**/**/*.ts"],
-  "compileOnSave": false
+  "include": [
+    "./test/e2e/**/*.ts",
+    "./test/e2e/**/**/*.ts"
+  ]
 }

@@ -3,7 +3,7 @@
         "searchTerm": "hex",
         "expectedKeyword": "hex",
         "urlSearchTerm": "hex",
-        "expectedSearchCount": "10",
+        "expectedSearchCount": "8",
         "expectedProdNames": ["Heavy Hex Nut", "Flex-top Hex Nut"]
     }
 }

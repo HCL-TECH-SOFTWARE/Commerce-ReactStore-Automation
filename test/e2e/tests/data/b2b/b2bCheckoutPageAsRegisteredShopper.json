@@ -8,7 +8,9 @@
         "hundredAndTwo": 102
     },
     "alertmsg": {
-        "itemAdded1": "Item was added to cart. ",
+        "itemAdded1": "Item was added to cart.",
+        "twoItemsAddedB2B": "Successfully added 2 items to current order",
+        "newInsufIvMsg": "One or more items in your current selection do not have sufficient inventory. Adjust some items and try again.",
         "insufficientInventory": "There is insufficient inventory to purchase",
         "invalidEmptyQunatiy": "The values in the Quantity fields are invalid or empty. Ensure the values are positive integers and try again."
     },
@@ -67,5 +69,11 @@
     "buttonColor": {
         "backgroundColorEnabled": "rgba(0,145,255,1)",
         "backgroundColorDisabled": "rgba(1,111,194,1)"
+    },
+    "paymentMethodType": {
+        "masterCardCreditCard": "MasterCard Credit Card",
+        "visaCreditCard": "VISA Credit Card",
+        "americanExpressCreditCard": "American Express Credit Card",
+        "cashOnDelivery": "Cash on delivery"
     }
 }

@@ -1,5 +1,5 @@
 /*
-# Copyright 2021 HCL America, Inc.
+# Copyright 2022 HCL America, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,82 +12,81 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-# The script sets up necessary environment variables to run DX in a docker-compose environment
 */
-import { HomePage } from '../../pageobjects/pages/b2b/HomePage.po'
-import { BreadCrumb } from '../../pageobjects/pages/BreadCrumb.po'
-import { CategoryPage } from '../../pageobjects/pages/b2b/CategoryPage.po'
-import CATALOG = require('../data/b2b/SapphireProducts.json')
-import configFile = require('../data/UserManagementData.json')
+import { HomePage } from "../../pageobjects/pages/b2b/HomePage.po";
+import { BreadCrumb } from "../../pageobjects/pages/BreadCrumb.po";
+import { CategoryPage } from "../../pageobjects/pages/b2b/CategoryPage.po";
+import CATALOG from "../data/b2b/SapphireProducts.json";
+import configFile from "../data/UserManagementData.json";
+import { Utils } from "../../pageobjects/pages/Utils.po";
 
-describe('B2B - User Navigates to Category Page', () => {
-  const storeName = configFile.store
-  afterEach(function () {
-    browser.deleteAllCookies()
-    browser.execute(() => localStorage.clear())
-    browser.execute(() => sessionStorage.clear())
-  })
-  it('Test01- navigate from parent category to child category', () => {
-    console.log('test01- navigate from parent category to child category')
-    let category = CATALOG.Categories.Fasteners
-    let subcategory = category.Bolts
-    console.log(
-      'subcategories from ' + category.categoryName + ' :' + subcategory
-    )
+describe("B2B.CategoryPage - User Navigates to Category Page", () => {
+  const storeName = configFile.store;
+  let m: string;
+
+  afterEach(async function () {
+    await browser.deleteAllCookies();
+    await browser.execute(() => localStorage.clear());
+    await browser.execute(() => sessionStorage.clear());
+  });
+
+  it("Test01 - navigate from parent category to child category", async () => {
+    m = "CategoryPage.Test01";
+    Utils.log(m, "navigate from parent category to child category");
+    const category = CATALOG.Categories.Fasteners;
+    const subcategory = category.Bolts;
+    Utils.log(m, "subcategories from " + category.categoryName + " :" + subcategory);
     //Launch emerald storefront
-    browser.url(storeName.sappire)
+    await browser.url(storeName.sapphire);
     //Open hamburger menu
-    const homePage = new HomePage()
-    const megaMenu = homePage.headerMenu(category.categoryName)
+    const homePage = new HomePage();
+    const megaMenu = await homePage.headerMenu(category.categoryName);
     //Navigate to parent category
-    megaMenu.goToParentCategoryFrom2TierMenu(category.categoryName)
-    const categorypage = new CategoryPage()
+    await megaMenu.goToParentCategoryFrom2TierMenu(category.categoryName);
+    const categorypage = new CategoryPage();
     //Verify category page loaded and the correct subcategories displayed
-    categorypage.verifyChildCategories(category)
+    await categorypage.verifyChildCategories(category);
     //click on child category from category page
-    categorypage.handleChildCategoryName(subcategory.subCategoryName)
+    await categorypage.handleChildCategoryName(subcategory.subCategoryName);
     //verify breadcrumb count display
-    let breadcrumb: BreadCrumb = new BreadCrumb()
-    breadcrumb.countBreadCrumbsDisplay(subcategory.breadIndex)
+    const breadcrumb: BreadCrumb = new BreadCrumb();
+    await breadcrumb.countBreadCrumbsDisplay(subcategory.breadIndex);
     //verify 1st breadcrumb contains category
-    //breadcrumb.verifyBreadCrumb(0, category.categoryName)
+    await breadcrumb.verifyBreadCrumb(0, category.categoryName);
     //verify 2nd breadcrumb contains subcategory
-    breadcrumb.verifyBreadCrumb(1, subcategory.subCategoryName)
-  })
+    await breadcrumb.verifyBreadCrumb(1, subcategory.subCategoryName);
+  });
 
-  it('test02- to Navigate to subcategory page and use breadcrumb to go back', () => {
-    console.log(
-      'test02- to Navigate to subcategory page and use breadcrumb to go back'
-    )
-    let category = CATALOG.Categories.Fasteners
-    let subcategory = category.Nuts
-    console.log('categories from ' + category.categoryName + ' :' + subcategory)
+  it("Test02 - to Navigate to subcategory page and use breadcrumb to go back", async () => {
+    m = "CategoryPage.Test02";
+    Utils.log(m, "to Navigate to subcategory page and use breadcrumb to go back");
+    const category = CATALOG.Categories.Fasteners;
+    const subcategory = category.Nuts;
+    Utils.log(m, "categories from " + category.categoryName + " :" + subcategory);
     //Launch emerald store-front
-    browser.url(storeName.sappire)
+    await browser.url(storeName.sapphire);
+    let categorypage = new CategoryPage();
     /** Create a common funtion to navite to all the main category and their sub category */
     //Open hamburger menu
-    const homePage = new HomePage()
-    const megaMenu = homePage.headerMenu(category.categoryName)
+    const homePage = new HomePage();
+    const megaMenu = await homePage.headerMenu(category.categoryName);
     //go to category page
-    megaMenu.goToParentCategoryFrom2TierMenu(category.categoryName)
-    let categorypage = new CategoryPage()
+    await megaMenu.goToParentCategoryFrom2TierMenu(category.categoryName);
+    categorypage = new CategoryPage();
     //Verify category page loaded and the correct subcategories are displayed
-    categorypage.verifyChildCategories(category)
+    await categorypage.verifyChildCategories(category);
     //click on the subcategory
-    categorypage = categorypage.handleChildCategoryName(
-      subcategory.subCategoryName
-    )
+    categorypage = await categorypage.handleChildCategoryName(subcategory.subCategoryName);
     //verify breadcrumb contains category
-    let breadcrumb: BreadCrumb = new BreadCrumb()
-    breadcrumb.countBreadCrumbsDisplay(subcategory.breadIndex)
+    const breadcrumb: BreadCrumb = new BreadCrumb();
+    await breadcrumb.countBreadCrumbsDisplay(subcategory.breadIndex);
     //verify 1st breadcrumb contains category
-    //breadcrumb.verifyBreadCrumb(0, category.categoryName)
+    await breadcrumb.verifyBreadCrumb(0, category.categoryName);
     //verify 2nd breadcrumb contains subcategory
-    breadcrumb.verifyBreadCrumb(1, subcategory.subCategoryName)
+    await breadcrumb.verifyBreadCrumb(1, subcategory.subCategoryName);
     //click on category crumb
-    categorypage = categorypage.breadCrumb(0)
+    categorypage = await categorypage.breadCrumb(category.categoryName);
     //verify the caegory name display
-    categorypage.verifyCategoryName(category.categoryName)
-  })
-})
+    await categorypage.verifyCategoryName(category.categoryName);
+  });
+});

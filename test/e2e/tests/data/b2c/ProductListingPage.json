@@ -5,26 +5,20 @@
         "totalProducts": "35 products",
         "totalCards": 12,
         "filterByHeading": "Filter by",
-        "expectedFilters": [
-            "Price",
-            "Brand",
-            "Product Dimensions",
-            "Color",
-            "Size",
-            "Item Weight",
-            "Material",
-            "Pattern"
-        ],
+        "expectedFilters": ["Price", "Brand", "Product Dimensions", "Color", "Size", "Item Weight", "Material", "Pattern"],
         "filterByPrice": {
             "invalidmaxprice": "0",
             "invalidminprice": "1",
             "maxprice": "1000",
             "minprice": "1",
+            "maxprice1": "50",
+            "minprice1": "0",
             "maxproducts": 12,
             "totalproducts": "32 products",
             "firstpage": 12,
             "secondpage": 12,
-            "lastpage": 8
+            "lastpage": 8,
+            "noResultMsg": "Sorry, no results were found for the filter selected."
         }
     }
 }

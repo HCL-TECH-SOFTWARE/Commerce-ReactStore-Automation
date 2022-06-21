@@ -1,5 +1,5 @@
 /*
-# Copyright 2021 HCL America, Inc.
+# Copyright 2022 HCL America, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-# The script sets up necessary environment variables to run DX in a docker-compose environment
 */
 var fs = require('fs');
 var moment = require('moment');
@@ -72,8 +70,6 @@ exports.config = {
     ],
 
     jasmineOpts: {
-        //requires: ['ts-node/register'],
-        requires:  ['tsconfig-paths/register'],
         defaultTimeoutInterval: 500000,
         expectationResultHandler: function(passed, assertion) {
             if (passed) {

@@ -1,5 +1,5 @@
 /*
-# Copyright 2021 HCL America, Inc.
+# Copyright 2022 HCL America, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,74 +12,148 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-# The script sets up necessary environment variables to run DX in a docker-compose environment
 */
-import { HomePage } from '../../pageobjects/pages/b2b/HomePage.po'
-import { OrganizationDashboardPage } from '../../pageobjects/pages/b2b/OrganizationDashboardPage.po'
-import { PersonalInformation } from '../../pageobjects/pages/b2b/PersonalInformationPage.po'
-import dataFile = require('../../tests/data/b2b/AccountPage.json')
-import configFile = require('../data/UserManagementData.json')
-import envConfig = require('../../../../env.config.json')
-import { RestHelper } from '../../pageobjects/base/RestHelper'
+import { HomePage } from "../../pageobjects/pages/b2b/HomePage.po";
+import { PersonalInformation } from "../../pageobjects/pages/b2b/PersonalInformationPage.po";
+import dataFile from "../../tests/data/b2b/AccountPage.json";
+import configFile from "../data/UserManagementData.json";
+import envConfig from "../../../../env.config.json";
+import { RestHelper } from "../../pageobjects/base/RestHelper";
+import { Utils } from "../../pageobjects/pages/Utils.po";
 
-describe('B2B - User views My Account Page and Change Password', function () {
-  let personalInfo, homePage
-  const storeName = configFile.store
-  const links = dataFile.links
-  const testData = dataFile.test01
-  const helper = new RestHelper()
-  const password = helper.readPassword()
-  beforeEach(function () {
-    browser.maximizeWindow()
-    browser.url(storeName.sappire)
-    homePage = new HomePage()
-    homePage.signIn()
-    homePage.login(configFile.user.logonId, password)
-    homePage.goToYourAccount().goToAccountWindow('Dashboard')
-  })
-  afterEach(function () {
-    browser.deleteAllCookies()
-    browser.execute(() => localStorage.clear())
-    browser.execute(() => sessionStorage.clear())
-    homePage = new HomePage()
-  })
-  it('Test01: Verify personal information for the registered user', function () {
-    console.log('Test01: Verify personal information for the registered user')
-    const dashboardPage = new OrganizationDashboardPage()
-    dashboardPage.dashboard('Account Settings', 'Personal Information')
+describe("B2B.MyAccountChangePassword - User views My Account Page and Change Password", () => {
+  let personalInfo, homePage, m: string;
+  const storeName = configFile.store;
+  const links = dataFile.links;
+  const testData = dataFile.test01;
+  const helper = new RestHelper();
+  const password = helper.readPassword();
+
+  beforeEach(async () => {
+    await browser.maximizeWindow();
+    await browser.url(storeName.sapphire);
+    homePage = new HomePage();
+    await homePage.signIn();
+    await homePage.login(configFile.user.logonId, password);
+    await homePage.goToYourAccount();
+    await homePage.goToAccountWindow("Dashboard");
+  });
+
+  afterEach(async () => {
+    await browser.deleteAllCookies();
+    await browser.execute(() => localStorage.clear());
+    await browser.execute(() => sessionStorage.clear());
+    homePage = new HomePage();
+  });
+
+  it("Test01 - Verify personal information for the registered user", async () => {
+    m = "MyAccountChangePassword.Test01";
+    Utils.log(m, "Verify personal information for the registered user");
     //Verfiy the Personal Information Header
-    personalInfo = new PersonalInformation()
-    personalInfo.verifyPersonalInformationPageHeading()
+    personalInfo = await PersonalInformation.get();
+    personalInfo.editPersonalInfo();
+
+    Utils.log(m, "Verifying heading");
+    await personalInfo.verifyPersonalInformationPageHeading();
+
     //Verfiy the Welcome Header
-    personalInfo.verifyWelcomeMsg()
-    //Verify the Welcome description
-    personalInfo.verifyWelcomeDecription(testData.welcomedescription)
+    Utils.log(m, "Verifying welcome message");
+    await personalInfo.verifyWelcomeMsg();
+
     //Verfy links on Personal Information page
-    personalInfo.verifylinks(links.orderhistory)
-    personalInfo.verifylinks(links.addressbook)
-    personalInfo.verifylinks(links.recurringorders)
+    Utils.log(m, "Verifying links");
+    await personalInfo.verifylinks(links.orderhistory);
+    await personalInfo.verifylinks(links.addressbook);
+    await personalInfo.verifylinks(links.recurringorders);
+
     //verify the personal information
-    personalInfo.verifyTextValue('Name', testData.name)
-    personalInfo.verifyTextValue('Email Address', testData.email)
-    personalInfo.verifyTextValue('Phone Number', testData.phone)
-    personalInfo.verifyTextValue('Address', testData.address)
-  })
-  it('Test02: To change password', function () {
-    console.log('Test02: To change password')
-    const dashboardPage = new OrganizationDashboardPage()
-    dashboardPage.dashboard('Account Settings', 'Personal Information')
+    Utils.log(m, "Verifying personal info");
+    await personalInfo.verifyTextValue("First Name", testData.firstName);
+    await personalInfo.verifyTextValue("Last Name", testData.lastName);
+    await personalInfo.verifyTextValue("Email Address", testData.email);
+    await personalInfo.verifyTextValue("Phone (optional)", testData.phone);
+    await personalInfo.verifyTextValue("Address line 1", testData.address);
+    await browser.pause(envConfig.timeout.lowtimeout);
+  });
+
+  it("Test02 - To Verify incorrect Current Password Alert", async () => {
+    m = "MyAccountChangePassword.Test02";
+    Utils.log(m, "To Verify incorrect Current Password Alert");
     //verify the personal information
-    personalInfo = new PersonalInformation()
+    personalInfo = await PersonalInformation.get();
+    await personalInfo.changePassword();
+    await browser.pause(envConfig.timeout.lowtimeout);
+    await personalInfo.type("Current Password", configFile.user.password);
+    await personalInfo.type("New Password", configFile.user.password);
+    await personalInfo.type("Verify Password", configFile.user.password);
+    await browser.pause(envConfig.timeout.lowtimeout);
+    await personalInfo.savePassword();
+    await personalInfo.verifyIncorrectCurrentPasswordAlert(testData.incorrectPassword);
+  });
+
+  it("Test03 - To Change password where new password is not as per the password policy", async () => {
+    m = "MyAccountChangePassword.Test03";
+    Utils.log(m, "To Change password where new password is not as per the password policy");
+    //verify the personal information
+    personalInfo = await PersonalInformation.get();
+    await browser.pause(envConfig.timeout.lowtimeout);
+    await personalInfo.changePassword();
+
+    await personalInfo.type("Current Password", password);
+    await personalInfo.type("New Password", dataFile.passwordPolicy.lessthan8char);
+    await personalInfo.type("Verify Password", dataFile.passwordPolicy.lessthan8char);
+    await browser.pause(envConfig.timeout.lowtimeout);
+    await personalInfo.savePassword();
+
+    await browser.pause(envConfig.timeout.lowtimeout);
+    await personalInfo.verifyPasswordPolicyAlertMessage(dataFile.passwordPolicy.passwordPolicyMessageForLessThan8Char);
+    await browser.pause(envConfig.timeout.lowtimeout);
+
+    await personalInfo.type("New Password", dataFile.passwordPolicy.passwordwithoutdigit);
+    await personalInfo.type("Verify Password", dataFile.passwordPolicy.passwordwithoutdigit);
+    await browser.pause(envConfig.timeout.lowtimeout);
+    await personalInfo.savePassword();
+    await browser.pause(envConfig.timeout.lowtimeout);
+    await personalInfo.verifyPasswordPolicyAlertMessage(
+      dataFile.passwordPolicy.passwordPolicyMessageForpasswordWithoutDigit
+    );
+    await browser.pause(envConfig.timeout.lowtimeout);
+
+    //verify the personal information
+    await personalInfo.type("Current Password", password);
+    await personalInfo.type("New Password", dataFile.passwordPolicy.passwordwithoutchar);
+    await personalInfo.type("Verify Password", dataFile.passwordPolicy.passwordwithoutchar);
+    await browser.pause(envConfig.timeout.lowtimeout);
+    await personalInfo.savePassword();
+
+    await browser.pause(envConfig.timeout.lowtimeout);
+    await personalInfo.verifyPasswordPolicyAlertMessage(
+      dataFile.passwordPolicy.passwordPolicyMessageForpasswordWithoutChar
+    );
+  });
+
+  it("Test04 - To change password", async () => {
+    m = "MyAccountChangePassword.Test04";
+    Utils.log(m, "To change password");
+    //verify the personal information
+    personalInfo = await PersonalInformation.get();
+    await browser.pause(envConfig.timeout.lowtimeout);
     //verify save button is not clickable
-    personalInfo.verifyButtonIsNotClickable('Save')
+    await personalInfo.changePassword();
+    await personalInfo.verifySavePwDisabled();
+
     //Change Password with a new pwd
-    personalInfo.type('Current Password', password)
-    personalInfo.type('New Password', testData.newpassword)
-    personalInfo.type('Verify Password', testData.verifynewpassword)
-    personalInfo.updatePassword()
-    personalInfo.verifyChangePasswordAlert(testData.changepasswordalertmessage)
-    personalInfo.storePassword(testData.verifynewpassword)
-    personalInfo.dashboard()
-  })
-})
+    await personalInfo.type("Current Password", password);
+    await personalInfo.type("New Password", testData.newpassword);
+    await personalInfo.type("Verify Password", testData.verifynewpassword);
+    await browser.pause(envConfig.timeout.lowtimeout);
+    await personalInfo.savePassword();
+
+    await browser.pause(envConfig.timeout.lowtimeout);
+    await personalInfo.verifyChangePasswordAlert(testData.changepasswordalertmessage);
+    await browser.pause(envConfig.timeout.lowtimeout);
+
+    await personalInfo.storePassword(testData.verifynewpassword);
+    await browser.pause(envConfig.timeout.midtimeout);
+  });
+});

@@ -1,29 +1,30 @@
 {
-    "totalProducts": {
+    "totalProducts":{
         "One": 1,
         "Two": 2,
         "Three": 3,
         "Four": 4
     },
-    "quantity": {
+    "quantity" : {
         "One": 1,
         "Two": 2,
         "Three": 3,
         "Four": 4
     },
-    "alertmsg": {
-        "addcartAlertMsg": "Item was added to cart."
+    "alertmsg" :{
+        "addcartAlertMsg" : "Item was added to cart."
     },
-    "orderConfirmation": {
-        "orderReceived": "We've received your order",
+    "orderConfirmation":{
+        "orderReceived" : "We've received your order",
         "receiptDetails": "A copy of your receipt has been sent to",
         "acknowledgeMsg": "Thank you for shopping at Emerald."
     },
     "test01": {
-        "user": "guest",
+        "user" : "guest",
         "shippingMethod": "US - Overnight Delivery",
-        "paymentMethod": "Cash on delivery",
-        "addressBook": [{
+        "paymentMethod" : "Cash on delivery",
+        "addressBook": [
+            {
                 "nickName": "ShipAddress",
                 "firstName": "CaliGuestcheckoutfirst",
                 "lastName": "CaliGuestcheckoutlast",
@@ -47,7 +48,7 @@
                 "state": "California",
                 "zipCode": "90002",
                 "phone1": "4447776533",
-                "email1": "CaliAddress@test.com"
+                "email1": "CaliAddress@test.com"              
             }
         ]
     }

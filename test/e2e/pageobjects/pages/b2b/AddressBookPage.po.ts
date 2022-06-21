@@ -1,5 +1,5 @@
 /*
-# Copyright 2021 HCL America, Inc.
+# Copyright 2022 HCL America, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,124 +12,145 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-# The script sets up necessary environment variables to run DX in a docker-compose environment
 */
-import { Utils } from '../Utils.po'
-import { AddAddressPage } from './AddAddressPage.po'
-import { EditAddressPage } from './EditAddressPage.po'
-import * as envConfig from '../../../../../env.config.json'
+import { Utils } from "../Utils.po";
+import { AddAddressPage } from "./AddAddressPage.po";
+import { EditAddressPage } from "./EditAddressPage.po";
+import * as envConfig from "../../../../../env.config.json";
 
 //AddressBookPage class used to handle the object of AddressBookPage
 export class AddressBookPage {
-  addressbookTitle = '//h3[@id = "address-book-title"]'
-  addressbookMenu = '//nav//span[text() = "Address Book"]'
-  alertMsg = '//div[@class="MuiAlert-message"]'
-  addresscard = $('div.address-card')
-  editLink = "//a[text() = 'Edit']"
-  deleteLink = "//p[text()='Delete']"
-  deleteAlertMsg = "//div[contains(text(),'has been deleted successfully')]"
-  alertClose = $("//button[@title='Close']")
-  maxtimeoutValue: number = envConfig.timeout.maxtimeout
-  util = new Utils()
+  addressbookTitle = '//h3[@id = "address-book-title"]';
+  addressbookMenu = '//nav//span[text() = "Address Book"]';
+  alertMsg = '//div[@class="MuiAlert-message"]';
+  addresscard = $("div.address-card");
+  addressCardSelector = "div.address-card";
+  editLink = "//a[text() = 'Edit']";
+  deleteLink = "//p[text()='Delete']";
+  deleteAlertMsg = "//div[contains(text(),'has been deleted successfully')]";
+  alertClose = $("//button[@title='Close']");
+  maxtimeoutValue: number = envConfig.timeout.maxtimeout;
+  util = new Utils();
 
-  constructor () {
-    this.validate()
-  }
+  constructor() {}
+
   /**
    * Used to validate the title and address book menu
    */
-  validate () {
-    this.util.verifyText('Address Book', this.addressbookTitle, 'pagetitle')
-    this.util.verifyText('Address Book', this.addressbookMenu, 'menu')
+  async validate() {
+    await this.util.verifyText("Address Book", this.addressbookTitle, "pagetitle");
+    await this.util.verifyText("Address Book", this.addressbookMenu, "menu");
   }
   /**
    * Used to add address on address book page
    */
-  addAddress (): AddAddressPage {
-    this.util.handleOnClickBtn('Add Address')
-    return new AddAddressPage()
+  async addAddress() {
+    await this.util.buttonClickById("button-address-book-add");
+    const rc = new AddAddressPage();
+    await rc.validate();
+    return rc;
   }
+
   /**
    * Used to edit the address on address book page
    * @param index pass address card number as a number
    */
-  editAddress (index: number): EditAddressPage {
-    index = index - 1
-    $$(this.editLink)[index].waitForDisplayed()
-    $$(this.editLink)[index].click()
-    return new EditAddressPage()
+  async editAddress(index: number = -1) {
+    const links = await $$(this.editLink);
+    index = index === -1 ? links.length - 1 : index - 1;
+    await links[index].waitForClickable();
+    await links[index].click();
+    return new EditAddressPage();
   }
+
   /**
    * Used to verify alert message from address book page
    * @param expectedMsg : pass expected messaged as string
    */
-  verifyAlertMessage (expectedMsg: string) {
-    this.util.verifyDialogAlertMsg(expectedMsg, this.alertMsg)
-    return this
+  async verifyAlertMessage(expectedMsg: string) {
+    await this.util.verifyDialogAlertMsg(expectedMsg, this.alertMsg);
+    return this;
   }
   /**
    * Method is used to close the alert message
    */
-  closeAlertMsg () {
-    this.alertClose.waitForDisplayed()
-    this.alertClose.click()
+  async closeAlertMsg() {
+    await this.alertClose.waitForClickable();
+    await this.alertClose.click();
   }
+
+  async getNumAddressCards() {
+    const cards = await $$(this.editLink);
+    return cards.length;
+  }
+
   /**
-   * Used to verify that no address card displayed
+   * Verify n number of address card are displayed
+   * @returns this
    */
-  verifyNoAddressCardDisplay () {
-    expect(this.addresscard.isDisplayed()).toBe(
-      false,
-      'address card is displayed'
-    )
-    return this
+  async verifyNumAddressCards(n: number) {
+    const len = await this.getNumAddressCards();
+    await expect(len).toEqual(n);
+    return this;
   }
+
   /**
    * Used to verify the address card display
    */
-  verifyAddressCardDisplay () {
-    expect(this.addresscard.isDisplayed()).toBe(
-      true,
-      'address card is not displayed'
-    )
-    return this
+  async verifyAddressCardDisplay() {
+    await expect(await this.addresscard.isDisplayed()).toBe(true);
+    return this;
   }
   /**
    * Used to delete the address from address book
    * @param index pass index as address card number
    */
-  deleteAddress (index: number) {
-    index = index - 1
-    $$(this.deleteLink)[index].waitForDisplayed()
-    $$(this.deleteLink)[index].click()
-    return this
+  async deleteAddress(index: number = -1) {
+    const links = await $$(this.deleteLink);
+    index = index === -1 ? links.length - 1 : index - 1;
+    await links[index].waitForClickable();
+    await links[index].click();
+    return this;
   }
   /**
    * On pop up of confirming delete address, used to delete
    */
-  confirmDelete () {
-    this.util.handleOnClickBtn('Confirm Delete')
+  async confirmDelete() {
+    await this.util.handleOnClickBtn("Confirm Delete");
   }
   /**
    * On pop up of confirming delete address, used to cancel if not want to delete the address from an address book page
    */
-  cancelDelete () {
-    this.util.handleOnClickBtn('Cancel')
+  async cancelDelete() {
+    await this.util.handleOnClickBtn("Cancel");
   }
   /**
    * Used to delete all the available address from address book page
    */
-  deleteAllAddress () {
-    $$(this.deleteLink).forEach(del => {
-      del.click()
-      this.confirmDelete()
-      browser.waitUntil(() => this.alertClose.isDisplayed() === true, {
-        timeout: envConfig.timeout.maxtimeout,
-        timeoutMsg: 'Alert Close is not displayed'
-      })
-      this.alertClose.click()
-      browser.pause(envConfig.timeout.lowtimeout)
-    })
+  async deleteAllAddress() {
+    await this.validate();
+    const links = await $$(this.deleteLink);
+
+    for (const del of links) {
+      await del.waitForClickable();
+      await del.click();
+      await this.confirmDelete();
+      await this.alertClose.waitForClickable();
+      await this.alertClose.click();
+    }
+  }
+  /**
+   * method to validate saved address card data
+   * @param expectedAddressData : pass expected address data as a object
+   */
+  async verifyAddressCardDetails(expectedAddressData: object, cardNumber: number = -1) {
+    const cards = await $$(this.addressCardSelector);
+    const index = cardNumber === -1 ? cards.length - 1 : cardNumber - 1;
+    await browser.pause(envConfig.timeout.lowtimeout);
+    const card = cards[index];
+    for (const [, value] of Object.entries(expectedAddressData)) {
+      const selector = await card.$(`//p[contains(text(), "${value}")]`);
+      await expect(await selector.isDisplayed()).toBe(true);
+    }
   }
 }

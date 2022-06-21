@@ -1,5 +1,5 @@
 /*
-# Copyright 2021 HCL America, Inc.
+# Copyright 2022 HCL America, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,56 +12,54 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-# The script sets up necessary environment variables to run DX in a docker-compose environment
 */
-import * as envConfig from '../../../../env.config.json'
+import * as envConfig from "../../../../env.config.json";
 
 //Mega Menu class is used to handle the object of Mega Menu
 export class MegaMenu {
-  parentcategoryLink = 'a > p.expanded-menu-bold'
-  timeoutValue: number = envConfig.timeout.maxtimeout
+  parentcategoryLink = "a > p.expanded-menu-bold";
+  timeoutValue: number = envConfig.timeout.maxtimeout;
+  constructor() {}
   /**
    * Used to go to product listing page using child category
    * @param childCategory : pass child category name as string
    */
-  goToProductListingPage (childCategory: string) {
-    const categorySelector: string =
-      "//p[contains(text(), '" + childCategory + "')]"
-    browser.waitUntil(() => $(categorySelector).getText() === childCategory, {
+  async goToProductListingPage(childCategory: string) {
+    const categorySelector: string = "//p[contains(text(), '" + childCategory + "')]";
+    const locator = $(categorySelector);
+    await browser.waitUntil(async () => (await locator.getText()) === childCategory, {
       timeout: this.timeoutValue,
-      timeoutMsg: 'child category is not displayed in menu'
-    })
-    $(categorySelector).click()
-    browser.pause(envConfig.timeout.midtimeout)
+      timeoutMsg: "child category is not displayed in menu",
+    });
+    await locator.click();
+    await browser.pause(envConfig.timeout.midtimeout);
   }
   /**
    * Used to go to parent category from mega menu
    * @param parentcategory : pass parent category as string
    */
-  goToParentCategoryFrom2TierMenu (parentcategory: string) {
-    browser.waitUntil(
-      () =>
-        $(this.parentcategoryLink).isDisplayed() === true &&
-        $(this.parentcategoryLink).getText() === parentcategory,
+  async goToParentCategoryFrom2TierMenu(parentcategory: string) {
+    const locator = $(this.parentcategoryLink);
+    await browser.waitUntil(
+      async () => (await locator.isDisplayed()) === true && (await locator.getText()) === parentcategory,
       {
         timeout: this.timeoutValue,
-        timeoutMsg: 'parent category is not displayed in menu'
+        timeoutMsg: "parent category is not displayed in menu",
       }
-    )
-    $(this.parentcategoryLink).click()
+    );
+    await locator.click();
   }
   /**
    * Used to go to child category from mega menu
    * @param parentcategory : pass child category name as string
    */
-  goTOParentCategoryFrom3TierMenu (parentcategory: string) {
-    const categorySelector: string =
-      "//p[contains(text(), '" + parentcategory + "')]"
-    browser.waitUntil(() => $(categorySelector).getText() === parentcategory, {
+  async goToParentCategoryFrom3TierMenu(parentcategory: string) {
+    const categorySelector: string = "//p[contains(text(), '" + parentcategory + "')]";
+    const locator = $(categorySelector);
+    await browser.waitUntil(async () => (await locator.getText()) === parentcategory, {
       timeout: this.timeoutValue,
-      timeoutMsg: 'child category is not displayed in menu'
-    })
-    $(categorySelector).click()
+      timeoutMsg: "child category is not displayed in menu",
+    });
+    await locator.click();
   }
 }

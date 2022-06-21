@@ -1,20 +1,37 @@
 {
     "b2cuserandpass": [{
         "username": "b2cuser",
-        "password": "b2cuser123"
+        "password": "b2cuder123"
     }],
     "b2buserandpass": [{
         "username": "wcsautoadmin",
         "password": "wcs1admin"
     }],
+    "allStores": {
+        "sapphire": {
+            "key": "sapphire",
+            "name": "Sapphire",
+            "root": "/Sapphire",
+            "id": 12
+        },
+        "emerald": {
+            "key": "emerald",
+            "name": "Emerald",
+            "root": "/Emerald",
+            "id": 11
+        }
+    },
     "store": {
-        "sappire": "/Sapphire",
+        "sapphireName": "Sapphire",
+        "sapphire": "/Sapphire",
         "sapphireId": 12,
+        "emeraldName": "Emerald",
         "emerald": "/Emerald",
-        "emeraldId": 11
+        "emeraldId": 11,
+        "csr": "/csr"
     },
     "roleId": {
-        "registerCustomer": -29,
+        "registerCustomer": "-29",
         "buyerAdmin": -21,
         "buyerApproval": -22,
         "buyerBuySide": -24,
@@ -49,7 +66,7 @@
             "state": "Canada",
             "zipCode": "LK1 MK2"
         },
-        "logonId": "wcsautomationadmin3",
+        "logonId": "wcsautomationadmin",
         "password": "wcs2admin",
         "passwordVerify": "wcs2admin",
         "userAccountPolicyId": -1
@@ -66,7 +83,7 @@
         "administratorFirstName": "Test",
         "administratorLastName": "Org",
         "description": "AutoOrg3",
-        "organizationName": "wcs2automationorg1",
+        "organizationName": "wcs2automationorg",
         "parentOrganizationId": "-2001",
         "organizationType": "O"
     },
@@ -82,5 +99,21 @@
     "organizationNames": {
         "sapphireOrg": "Sapphire%20Organization",
         "rootOrg": "Root%20Organization"
+    },
+    "csrAdminUser": {
+        "address": {
+            "address1": "1234 Avenue Market  Near Omega Paradise  ON - 123 LKI  , Toronto, Canada, Canada - LK1 MK2",
+            "city": "Canada",
+            "email1": "storeUI@storeUI.com",
+            "firstName": "csr",
+            "lastName": "automation",
+            "personTitle": "admin",
+            "state": "Canada",
+            "zipCode": "LK1 MK2"
+        },
+        "logonId": "wcscsrautomationadmin1",
+        "password": "wcs2admin",
+        "passwordVerify": "wcs2admin",
+        "userAccountPolicyId": -1
     }
 }
