@@ -1,12 +1,4 @@
 {
-    "b2cuserandpass": [{
-        "username": "b2cuser",
-        "password": "b2cuder123"
-    }],
-    "b2buserandpass": [{
-        "username": "wcsautoadmin",
-        "password": "wcs1admin"
-    }],
     "allStores": {
         "sapphire": {
             "key": "sapphire",
