@@ -32,8 +32,8 @@ Code is under the [Apache 2.0 License](/LICENSE.txt).
 ## Running E2E tests
 
 - Ensure that the storefront is up and running.
-- Create a site admin user & update admin credentials inside UserManagementData.json file.
-  ![usermanagementdata-json](./resources/usermanagementdata-json.PNG)
+- Create a site admin user for b2b store & update admin credentials inside UserManagementData.json file.
+  ![usermanagementdata-json](./resources/usermanagementdata-json.png)
 
   Refer link to create a site admin user & Make sure the user is able to login at storefront.
   https://help.hcltechsw.com/commerce/9.1.0/management-center/tasks/tmsunew_siteadmin.html?hl=creating%2Cusers
