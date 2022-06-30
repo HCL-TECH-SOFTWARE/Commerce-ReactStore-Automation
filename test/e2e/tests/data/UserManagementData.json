@@ -39,8 +39,8 @@
         "orgGroupId": ["8000000000000003501"]
     },
     "admin": {
-        "username": "wcsadmin",
-        "password": "wcs1admin"
+        "username": "userxxxx",
+        "password": "passxxxx"
     },
     "userPassword": {
         "address": {},
